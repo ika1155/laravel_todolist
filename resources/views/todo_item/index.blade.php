@@ -80,7 +80,7 @@
 											@csrf
 											@method('patch')
 											<input type="hidden" name="from" value="index">
-											<input type="hidden" name="done" value="done">
+											<input type="hidden" name="done" value=true>
 											<button class="bg-blue-500 hover:bg-blue-400 text-white rounded px-4 py-2">
 												完了
 											</button>

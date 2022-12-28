@@ -37,7 +37,7 @@
 				</div>
 
 				<div class="w-full flex">
-					<input  class="custom-select" type="checkbox" name="done" value="done" 
+					<input  class="custom-select" type="checkbox" name="done" 
 					@if (isset($todo_item->finished_date)) checked @endif>
 					<label for="done" class="font-semibold leading-none mt-4">完了</label>
 				</div>

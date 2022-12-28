@@ -139,7 +139,7 @@ class Todo_itemController extends Controller
 			$todo_item->user_id = $request->user_id;
 			$todo_item->expire_date=$request->expire_date;
 
-			if ($request->done == "done"){
+			if ($request->done){
 				$todo_item->finished_date=date('Y-m-d');
 			}else{
 				$todo_item->finished_date = NULL;
@@ -149,7 +149,7 @@ class Todo_itemController extends Controller
 
 		} elseif ($request->from == 'index'){
 
-			if ($request->done == "done"){
+			if ($request->done){
 				if ($todo_item->finished_date == NULL){
 					$todo_item->finished_date =date('Y-m-d');
 					session()->flash('message', '作業を完了しました');
