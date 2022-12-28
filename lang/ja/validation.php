@@ -219,6 +219,11 @@ return [
         'updated_at' => '更新日',
         'username' => 'ユーザー名',
         'year' => '年',
+
+		//追加
+		'item_name' => '項目名',
+		'user_id' =>'担当者',
+		'expire_date' =>'期限日'
     ],
 
 ];
