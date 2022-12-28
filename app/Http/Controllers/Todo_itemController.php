@@ -14,7 +14,13 @@ class Todo_itemController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(Request $request)
+	public function __construct()
+	{
+		//ログインされていないときリダイレクトする
+		$this->middleware('auth');		
+	}
+
+	public function index(Request $request)
     {
         //
 		$keyword = $request->input('keyword');
