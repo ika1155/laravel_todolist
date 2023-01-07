@@ -9,7 +9,7 @@
 				作業一覧
 			</h2>
 
-			<div class=" rounded-lg p-5 w-2/4">
+			<div class=" rounded-lg p-3 w-2/4">
 				<form method="GET" action="{{route('todo_item.index')}}">
 					<div class="flex">
 						<div class="flex w-10 items-center justify-center rounded-tl-lg rounded-bl-lg border-r border-gray-200 bg-white p-5">

@@ -7,7 +7,7 @@
 		<x-message :message="session('message')" />
     </x-slot>
 
-	<div class="block p-6 rounded-lg shadow-lg bg-white max-w-sm">
+	<div class="block p-6 rounded-lg shadow-lg bg-white max-w-sm mx-auto mt-5">
 		<form method="post" action="{{route('todo_item.store')}}">
 			@csrf
 			<div class="form-group mb-6">
