@@ -51,23 +51,27 @@
 					</thead>
 					<tbody>
 						@foreach ($todo_items as $todo)
-							<tr class="bg-white border-b transition duration-300 ease-in-out hover:bg-gray-100" align="center">
+							<tr class="border-b transition duration-300 ease-in-out hover:bg-gray-100 @if ($todo->finished_date != null) bg-gray-100 @else bg-white @endif" align="center">
 								<td class="text-sm @if ($today>$todo->expire_date && $todo->finished_date == null ) text-red-500 @endif px-6 py-4 whitespace-nowrap" align="left">
 									@if ($todo->finished_date != null) <del> @endif
 										{{$todo->item_name}}
 									@if ($todo->finished_date != null) </del> @endif								
 								</td>
-								<td class="text-sm text-gray-900 px-6 py-4 whitespace-nowrap">
+								<td class="text-sm text-gray-900 px-6 py-4 whitespace-nowrap  @if ($today>$todo->expire_date && $todo->finished_date == null ) text-red-500 @endif">
 									@foreach ($users as $user)
 											@if ($todo->user_id == $user->id)
+												@if ($todo->finished_date != null) <del> @endif
 												{{$user->name}}
+												@if ($todo->finished_date != null) </del> @endif
 											@endif
 										@endforeach
 								</td>
 								<td class="text-sm @if ($today>$todo->expire_date && $todo->finished_date == null ) text-red-500 @endif px-6 py-4 whitespace-nowrap">
+									@if ($todo->finished_date != null) <del> @endif
 									{{$todo->expire_date}}
+									@if ($todo->finished_date != null) </del> @endif
 								</td>
-								<td class="text-sm text-gray-900 px-6 py-4 whitespace-nowrap">
+								<td class="text-sm text-gray-900 px-6 py-4 whitespace-nowrap  @if ($today>$todo->expire_date && $todo->finished_date == null ) text-red-500 @endif">
 									@if ($todo->finished_date == null)
 										未
 									@else
