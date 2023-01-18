@@ -57,7 +57,7 @@
 										{{$todo->item_name}}
 									@if ($todo->finished_date != null) </del> @endif								
 								</td>
-								<td class="text-sm text-gray-900 px-6 py-4 whitespace-nowrap  @if ($today>$todo->expire_date && $todo->finished_date == null ) text-red-500 @endif">
+								<td class="text-sm px-6 py-4 whitespace-nowrap  @if ($today>$todo->expire_date && $todo->finished_date == null ) text-red-500 @else text-gray-900 @endif">
 									@foreach ($users as $user)
 											@if ($todo->user_id == $user->id)
 												@if ($todo->finished_date != null) <del> @endif
@@ -71,7 +71,7 @@
 									{{$todo->expire_date}}
 									@if ($todo->finished_date != null) </del> @endif
 								</td>
-								<td class="text-sm text-gray-900 px-6 py-4 whitespace-nowrap  @if ($today>$todo->expire_date && $todo->finished_date == null ) text-red-500 @endif">
+								<td class="text-sm px-6 py-4 whitespace-nowrap  @if ($today>$todo->expire_date && $todo->finished_date == null ) text-red-500 @else text-gray-900 @endif">
 									@if ($todo->finished_date == null)
 										未
 									@else
