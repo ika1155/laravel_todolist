@@ -27,27 +27,17 @@ class Todo_itemController extends Controller
 
 		$users = User::all();
 
+		$query = Todo_item::query();
+
 		if (!empty($keyword)){
-			//https://www.ritolab.com/posts/93
-			//https://laraweb.net/practice/4756/
-			$query = Todo_item::query();
-
-			$query->Join('users', 'todo_items.user_id','=', 'users.id');
+			$query->Join('users', 'todo_items.user_id', '=', 'users.id');
 			$query->where('item_name', 'LIKE', "%{$keyword}%")
-			->orWhere('users.name', 'LIKE', "%{$keyword}%");
-
-			/* $sql = $query->toSql();
-			dd($sql); */
-
-			$todo_items = $query->orderBy('finished_date', 'asc')
+				  ->orWhere('users.name', 'LIKE', "%{$keyword}%");	
+		}
+		
+		$todo_items = $query->orderBy('finished_date', 'asc')
 								->orderBy('expire_date','asc')
 								->get();
-		}
-		else{
-			$todo_items = Todo_item::orderBy('finished_date', 'asc')
-									->orderBy('expire_date','asc')
-									->get();
-		}
 		
 		return view('todo_item.index', compact('todo_items', 'users', 'keyword'));
     }
